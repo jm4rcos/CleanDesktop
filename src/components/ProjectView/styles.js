@@ -17,3 +17,22 @@ export const Header = styled.div`
   height: 10vh;
   max-height: 10vh;
 `;
+
+export const Content = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+`;
+
+export const Card = styled.div`
+  height: 400px;
+  width: 300px;
+  overflow: hidden;
+  border-radius: 10px;
+`
+
+export const View = styled.img`
+  width: 100%;
+  height: 100%;
+`;

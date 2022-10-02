@@ -1,37 +1,29 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-function useFetch({ apiMethod, apiParams }) {
+function useFetch({ apiMethod, apiParams, update }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
 //   const [error, setError] = useState(null);
 
-  const url = "http://10.211.55.20:8080/Esprit/public/Interface/rpc";
+  const url = `${window.location.origin}/Esprit/public/Interface/rpc`;
 
   useEffect(() => {
     setLoading(true);
-    axios.post(url,
-        {
-          id: 1,
-          method: 'production.executeSQL',
-          params: {
-            sql: 'SELECT name FROM job'
-          },
-        },
-          {auth: {
-            username: 'admin',
-            password: 'admin',
-          }}
-        )
+    axios
+      .post(url, {
+        id: 1,
+        method: apiMethod,
+        params: apiParams,
+      })
       .then((response) => {
         setLoading(false);
-        setData(response.json());
+        setData(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
-    
-  }, [apiMethod]);
+  }, [apiMethod, update]);
 
   return { data, loading };
 }

@@ -62,12 +62,6 @@ export const NavigationItem = styled.button`
     cursor: pointer;
 
     ${({ selectedItem }) => selectedItem === true && css`
-        background: #DBE1F2;
+        background: #1e49dc;
     `}
-`;
-
-export const ProjectNavigation = styled.div`
-  height: 100px;
-  width: 100%;
-  background-color: #908;
 `;

@@ -12,8 +12,6 @@ import { NavigationComponent } from '../Navigation';
 
 export const Drawer = ({ props }) => {
 
-  console.log("Drawer Component Props: ", props)
-
   //uncomment this line to build
   const productionList = props.productionList
 
